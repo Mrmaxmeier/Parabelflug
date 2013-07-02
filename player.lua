@@ -9,6 +9,8 @@ function Player:init(img, x, y)
 	self.acc = 100
 	self.slope = 0.002
 	self.dy = 0
+	
+	self.fuel = 0
 end
 
 function Player:update(dt)

@@ -1,22 +1,21 @@
-Class = require("hump.class")
+require "class"
+require "util"
 
+fuel = class:new()
 
-fuelitem = Class{
-    init = function(self, img)
-        self.pos = {
-		x = 0,
-		y = 0
-	}
-        self.img = img
-    end
-}
-
-function fuelitem:update(dt)
-    -- see hump.vector
-    --local dir = (player.pos - self.pos):normalize_inplace()
-    --self.pos = self.pos + dir * Critter.speed * dt
+function fuel:init(img)
+	self.x, self.y =  math.random(SIZEX + 10, SIZEX + 500), math.random(0, SIZEY)
+	self.img = img
 end
 
-function fuelitem:draw()
-    love.graphics.draw(self.img, self.pos.x, self.pos.y)
+function fuel:update(dt)
+	self.x = self.x - 200*dt
+	if self.x < -SIZEX then
+		print("removed Fuel")
+		table.remVal(fuelitems, self)
+	end
+end
+
+function fuel:draw()
+	love.graphics.draw(self.img, self.x, self.y, 0, 1, 1, 0, 0)
 end
