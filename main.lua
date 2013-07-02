@@ -1,7 +1,7 @@
 function love.load()
 	--Vars
 	lg = love.graphics
-	graphicmode = 4
+	--[[graphicmode = 4
 	fsaa = 0
 	fullscreen = false
         modes = love.graphics.getModes()
@@ -12,7 +12,7 @@ function love.load()
 		print("X: ",modes[i].width)
 		print("Y: ",modes[i].height)
 	end
-	
+	--]]
 	require "player"
 	
 	require "bombitem"
