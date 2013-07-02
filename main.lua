@@ -12,6 +12,8 @@ end
 
 function love.draw()
 	for i, v in ipairs(images) do
-		love.graphics.draw(v.img, -n*v.speed)
+		w = v.img:getWidth()
+		love.graphics.draw(v.img, -n*v.speed%w)
+		love.graphics.draw(v.img, -n*v.speed%w - w)
 	end
 end
