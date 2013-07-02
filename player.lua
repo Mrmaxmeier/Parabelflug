@@ -10,7 +10,8 @@ function Player:init(img, x, y)
 	self.slope = 0.002
 	self.dy = 0
 	
-	self.fuel = 0
+	self.fuel = 5
+	self.health = 5
 end
 
 function Player:update(dt)
