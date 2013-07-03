@@ -17,5 +17,5 @@ function bomb:update(dt)
 end
 
 function bomb:draw()
-	love.graphics.draw(self.img, self.x, self.y, 0, 1, 1, 0, 0)
+	love.graphics.draw(self.img, self.x, self.y, 0, 0.5, 0.5, 0, 0)
 end

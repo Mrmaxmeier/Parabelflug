@@ -6,7 +6,7 @@ function Player:init(img, x, y)
 	self.img = img
 	self.x = x
 	self.y = y
-	self.acc = 100
+	self.acc = 150
 	self.slope = 0.002
 	self.dy = 0
 	
@@ -26,5 +26,5 @@ function Player:update(dt)
 end
 
 function Player:draw()
-	love.graphics.draw(self.img, self.x, self.y, self.dy*self.slope, 1, 1, 300, 70)
+	love.graphics.draw(self.img, self.x, self.y, self.dy*self.slope, 0.75, 0.75, 300, 70)
 end

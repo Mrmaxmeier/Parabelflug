@@ -46,7 +46,7 @@ function love.update(dt)
 		bombitem:update(dt)
 	end
 	
-	if math.random() < dt*0.5 then
+	if math.random() < dt*0.125 then
 		table.insert(fuelitems, fuel:new(fuelpic))
 		table.insert(bombitems, bomb:new(bombpic))
 	end
@@ -59,7 +59,6 @@ function love.draw()
 		love.graphics.draw(v.img, -scrolledPixel*v.speed%w - w)
 	end
 	
-	player:draw()
 	
 	for i, fuelitem in ipairs(fuelitems) do
 		fuelitem:draw()
@@ -70,11 +69,14 @@ function love.draw()
 	
 	--HUD
 	print("Health: ",player.health," Fuel:", player.fuel)
+	
 	for healthNo = 0, player.health - 1 do
-		lg.draw(heart, healthNo * 50, 10,  0, 0.1, 0.1)
+		lg.draw(heart, healthNo * 45, 10,  0, 0.075, 0.075)
 	end
 	for fuelNo = 0, player.fuel - 1 do
-		lg.draw(fuelpic, SIZEX - fuelNo * 50 - fuelpic:getWidth(), 10,  0, 1, 1)
+		lg.draw(fuelpic, SIZEX - fuelNo * 45 - fuelpic:getWidth(), 10,  0, 0.75, 0.75)
 	end
 	
+	--Player
+	player:draw()
 end
