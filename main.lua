@@ -77,6 +77,8 @@ function love.draw()
 		lg.draw(fuelpic, SIZEX - fuelNo * 45 - fuelpic:getWidth(), 10,  0, 0.75, 0.75)
 	end
 	
+	lg.print("Score: ", SIZEX/2, 0, 0, 2, 2)
+	
 	--Player
 	player:draw()
 end
