@@ -64,6 +64,7 @@ function love.draw()
 		fuelitem:draw()
 		if collides(player, fuelitem) then
 			print "fuuueeel"
+			player.fuel = player.fuel + 1
 			table.remVal(fuelitems, fuelitem)
 		end
 	end
@@ -71,6 +72,7 @@ function love.draw()
 		bombitem:draw()
 		if collides(player, bombitem) then
 			print "booooommmmmmbbbb"
+			player.health = player.health - 1
 			table.remVal(bombitems, bombitem)
 		end
 	end
@@ -81,7 +83,7 @@ function love.draw()
 	for healthNo = 0, player.health - 1 do
 		lg.draw(heart, healthNo * 45, 10,  0, 0.075, 0.075)
 	end
-	for fuelNo = 0, player.fuel - 1 do
+	for fuelNo = 0, math.floor(player.fuel - 1) do
 		lg.draw(fuelpic, SIZEX - fuelNo * 45 - fuelpic:getWidth(), 10,  0, 0.75, 0.75)
 	end
 	

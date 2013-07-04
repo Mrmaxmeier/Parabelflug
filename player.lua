@@ -31,10 +31,22 @@ function Player:update(dt)
 		self.dy = self.dy - dt*self.acc
 	end
 	
+	self.fuel = self.fuel - dt*0.1
 	
+	if self.fuel < 1 then
+		self.fuel = 5
+		self.health = self.health - 1
+	end
+	
+	if self.health < 1 then
+		self.dead = 1
+		print("TOOOOOT")
+	end
 	
 	self.beschl = (self.dy - self.dy_old)/dt
 	self.grav = self.beschl/10 - 16
+	
+	
 	
 	
 	self.score = self.score + math.abs((1/self.grav))*dt
