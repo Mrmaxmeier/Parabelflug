@@ -35,12 +35,12 @@ function Player:update(dt)
 	self.beschl = (self.dy - self.dy_old)/dt
 	self.grav = self.beschl/10 - 16
 	
+	
+	self.score = self.score + math.abs((1/self.grav))*dt
 	--print(grav)
 	
 end
 
 function Player:draw()
 	love.graphics.draw(self.img, self.x, self.y, self.dy*self.slope, 0.75, 0.75, 300, 70)
-	
-	lg.print("Gravitation: "..tostring(math.floor(self.grav)), SIZEX/2, 10, 0, 1, 1)
 end
