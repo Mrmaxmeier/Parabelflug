@@ -17,6 +17,7 @@ function Player:init(img, x, y)
 	self.health = 5
 	self.score = 0
 	self.grav = -9.8
+	self.sickness = 0
 end
 
 function Player:update(dt)
@@ -47,7 +48,8 @@ function Player:update(dt)
 	self.grav = self.beschl/10 - 16
 	
 	
-	
+	self.sickness = self.sickness * (1-dt/2) + (math.abs((1/self.grav))*dt)/4
+	print(self.sickness)
 	
 	self.score = self.score + math.abs((1/self.grav))*dt
 	--print(grav)
