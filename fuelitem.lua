@@ -5,6 +5,7 @@ fuel = class:new()
 
 function fuel:init(img)
 	self.x, self.y =  math.random(SIZEX + 10, SIZEX + 500), math.random(0, SIZEY)
+	self.r = 10
 	self.img = img
 end
 

@@ -6,6 +6,7 @@ function Player:init(img, x, y)
 	self.img = img
 	self.x = x
 	self.y = y
+	self.r = 90
 	self.acc = 150
 	self.slope = 0.002
 	self.dy = 0

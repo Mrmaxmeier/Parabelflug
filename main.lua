@@ -62,13 +62,21 @@ function love.draw()
 	
 	for i, fuelitem in ipairs(fuelitems) do
 		fuelitem:draw()
+		if collides(player, fuelitem) then
+			print "fuuueeel"
+			table.remVal(fuelitems, fuelitem)
+		end
 	end
 	for i, bombitem in ipairs(bombitems) do
 		bombitem:draw()
+		if collides(player, bombitem) then
+			print "booooommmmmmbbbb"
+			table.remVal(bombitems, bombitem)
+		end
 	end
 	
 	--HUD
-	print("Health: ",player.health," Fuel:", player.fuel)
+	--print("Health: ",player.health," Fuel:", player.fuel)
 	
 	for healthNo = 0, player.health - 1 do
 		lg.draw(heart, healthNo * 45, 10,  0, 0.075, 0.075)
