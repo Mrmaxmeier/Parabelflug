@@ -94,6 +94,11 @@ function love.draw()
 	
 	lg.print("Score: "..tostring(math.floor(player.score)), SIZEX/2 - 40, 0, 0, 2, 2)
 	lg.print("Gravitation: "..tostring(math.floor(player.grav)), SIZEX/2, 20, 0, 1, 1)
+	
+	
+	if player.dead == 1 then
+		lg.print("TOOOOOOOOOT", SIZEX/2, 50, 0, 1, 1)
+	end
 	--Player
 	player:draw()
 end
