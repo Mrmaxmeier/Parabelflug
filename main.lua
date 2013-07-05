@@ -21,6 +21,7 @@ function love.load()
 	
 	--Assets
 	heart = lg.newImage("assets/Heart.png")
+	sicknesssplash = lg.newImage("assets/Sicknesssplash.png")
 	
 	
 	front = love.graphics.newImage("assets/Front.png")
@@ -28,7 +29,7 @@ function love.load()
 	back = love.graphics.newImage("assets/Back.png")
 	images = {{img=back, speed=50}, {img=mid, speed=100},{img=front, speed=200}}
 	scrolledPixel = 0
-	player = Player:new(love.graphics.newImage("assets/Plane_Side.png"), 300, 200)
+	player = Player:new(love.graphics.newImage("assets/Plane_Side.png"), sicknesssplash, 300, 200)
 	fuelpic = love.graphics.newImage("assets/Fuel.png")
 	fuelitems = {}
 	bombpic = love.graphics.newImage("assets/Bomb.png")
