@@ -22,7 +22,7 @@ function love.load()
 	
 	--Assets
 	heart = lg.newImage("assets/Heart.png")
-	sicknesssplash = lg.newImage("assets/Sicknesssplash.png")
+	sicknesssplash = lg.newImage("assets/SicknessSplash.png")
 	
 	
 	front = love.graphics.newImage("assets/Front.png")
