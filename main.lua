@@ -13,6 +13,7 @@ function love.load()
 		print("Y: ",modes[i].height)
 	end
 	--]]
+	require "ani"
 	require "player"
 	
 	require "bombitem"
@@ -50,6 +51,9 @@ function love.update(dt)
 	if math.random() < dt*0.125 then
 		table.insert(fuelitems, fuel:new(fuelpic))
 		table.insert(bombitems, bomb:new(bombpic))
+	end
+	for k, ani in ipairs(anis) do
+		ani:update(dt)
 	end
 end
 
@@ -101,5 +105,10 @@ function love.draw()
 		lg.print("TOOOOOOOOOT", SIZEX/2, 50, 0, 1, 1)
 	end
 	--Player
+	
+	for k, ani in ipairs(anis) do
+		ani:draw()
+	end
+	
 	player:draw()
 end
