@@ -31,7 +31,7 @@ function AnimatedImg:draw()
 	love.graphics.draw(self.img, c.x, c.y, c.rot, c.sx, c.sy, c.ox, c.oy)
 end
 
-function linear(a, b, t)
+function linear(a, b, t, k)
 	return a*(1-t) + b*t
 end
 
@@ -66,7 +66,7 @@ function Step:coords(t)
 	for i, k in ipairs({"x", "y", "rot", "sx", "sy", "ox", "oy"}) do
 		local va = self.a[k]
 		local vb = self.b[k]
-		res[k] = self.interp(va, vb, tval)
+		res[k] = self.interp(va, vb, tval, k)
 	end
 	return res
 end
