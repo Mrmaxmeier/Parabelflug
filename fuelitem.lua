@@ -5,7 +5,7 @@ fuel = class:new()
 
 function fuel:init(img)
 	self.x, self.y =  math.random(SIZEX + 10, SIZEX + 500), math.random(0, SIZEY)
-	self.r = 10
+	self.r = 40
 	self.img = img
 end
 
@@ -18,5 +18,5 @@ function fuel:update(dt)
 end
 
 function fuel:draw()
-	love.graphics.draw(self.img, self.x, self.y, 0, 1, 1, 0, 0)
+	love.graphics.draw(self.img, self.x, self.y, 0, 1, 1, self.img:getWidth()/2, self.img:getHeight()/2)
 end

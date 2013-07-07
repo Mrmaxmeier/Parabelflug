@@ -55,6 +55,23 @@ function love.update(dt)
 	for k, ani in ipairs(anis) do
 		ani:update(dt)
 	end
+	
+	for i, ppoint in ipairs(player:getPoints()) do
+		for i, fuelitem in ipairs(fuelitems) do
+			if collides(ppoint, fuelitem) then
+				print "fuuueeel"
+				player.fuel = player.fuel + 1
+				table.remVal(fuelitems, fuelitem)
+			end
+		end
+		for i, bombitem in ipairs(bombitems) do
+			if collides(ppoint, bombitem) then
+				print "booooommmmmmbbbb"
+				player.health = player.health - 1
+				table.remVal(bombitems, bombitem)
+			end
+		end
+	end
 end
 
 function love.draw()
@@ -67,19 +84,9 @@ function love.draw()
 	
 	for i, fuelitem in ipairs(fuelitems) do
 		fuelitem:draw()
-		if collides(player, fuelitem) then
-			print "fuuueeel"
-			player.fuel = player.fuel + 1
-			table.remVal(fuelitems, fuelitem)
-		end
 	end
 	for i, bombitem in ipairs(bombitems) do
 		bombitem:draw()
-		if collides(player, bombitem) then
-			print "booooommmmmmbbbb"
-			player.health = player.health - 1
-			table.remVal(bombitems, bombitem)
-		end
 	end
 	
 	--HUD
